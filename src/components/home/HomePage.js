@@ -7,9 +7,9 @@ import {connect} from 'react-redux';
 class HomePage extends React.Component {
 
 	renderVideoList() {
-		return this.props.videos.map((video) => {
+		return this.props.videos.map((video, index) => {
 			return (
-				<li key={video.title}>{video.title}</li>
+				<li key={index}>{video.snippet.title}</li>
 			);
 		});
 	}
@@ -36,12 +36,5 @@ function mapStateToProps (state, ownProps) {
 		videos: state.videos
 	};
 }
-
-// function mapDispatchToProps (dispatch) {
-// 	return {
-// 		createCourse: (course) => dispatch(courseActions.createCourse(course))
-// 	};
-// }
-
 
 export default connect(mapStateToProps)(HomePage);
